@@ -36,13 +36,67 @@ export default function BottomMenu() {
         name="Inicio"
         component={HomeScreeen}
         options={{
-          tabBarIcon: ({}) => <AntDesignIcon name="home" size={20} />,
+          tabBarIcon: ({focused}) => (
+            <AntDesignIcon
+              name="home"
+              size={25}
+              style={{color: focused ? '#FECC33' : '#444'}}
+            />
+          ),
         }}
       />
-      <Tab.Screen name="Agendamentos" component={AgendamentosScreen} />
-      <Tab.Screen name="Empresas" component={EmpresasScreen} />
-      <Tab.Screen name="Torneios" component={TorneiosScreen} />
-      <Tab.Screen name="Perfil" component={PerfilScreen} />
+      <Tab.Screen
+        name="Agendamentos"
+        component={AgendamentosScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <AntDesignIcon
+              name="calendar"
+              size={25}
+              style={{color: focused ? '#FECC33' : '#444'}}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Empresas"
+        component={EmpresasScreen}
+        options={{
+          tabBarIcon: ({}) => (
+            <AntDesignIcon
+              name="pluscircle"
+              size={50}
+              style={{color: '#FECC33', top: -15}}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Torneios"
+        component={TorneiosScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <AntDesignIcon
+              name="Trophy"
+              size={25}
+              style={{color: focused ? '#FECC33' : '#444'}}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Perfil"
+        component={PerfilScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <AntDesignIcon
+              name="user"
+              size={25}
+              style={{color: focused ? '#FECC33' : '#444'}}
+            />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
