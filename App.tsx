@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import BottomMenu from './src/layout/navigation/BottomMenu';
+import BottomNavigation from './src/layout/navigation/bottomNavigation/bottomNavigation';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <BottomMenu />
+      <BottomNavigation />
     </NavigationContainer>
   );
 };
