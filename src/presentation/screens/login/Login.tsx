@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, Text, TouchableOpacity} from 'react-native';
+import {SafeAreaView, View, Text, TouchableOpacity, Image} from 'react-native';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
@@ -11,7 +11,9 @@ export default function LoginScreen({navigation}) {
   return (
     <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
       <View style={{paddingHorizontal: 25}}>
-        <View style={{alignItems: 'center'}}></View>
+        <View style={{alignItems: 'center'}}>
+          <Image source={require('../../../../assets/trofeu.png')} />
+        </View>
 
         <Text
           style={{
@@ -21,7 +23,7 @@ export default function LoginScreen({navigation}) {
             color: '#333',
             marginBottom: 30,
           }}>
-          Login
+          Entrar
         </Text>
 
         <InputField
