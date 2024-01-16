@@ -1,17 +1,17 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React from 'react';
 
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 
-import HomeScreeen from '../../../presentation/screens/home/Home';
-import AgendamentosScreen from '../../../presentation/screens/agendamentos/Agendamentos';
-import EmpresasScreen from '../../../presentation/screens/empresas/Empresas';
-import TorneiosScreen from '../../../presentation/screens/torneios/Torneios';
-import PerfilScreen from '../../../presentation/screens/perfil/Perfil';
-
 import {useRef} from 'react';
 import {Animated, Dimensions, TouchableOpacity, View} from 'react-native';
+import HomeScreeen from '../presentation/screens/home/Home';
+import AgendamentosScreen from '../presentation/screens/agendamentos/Agendamentos';
+import PerfilScreen from '../presentation/screens/perfil/Perfil';
+import TorneiosScreen from '../presentation/screens/torneios/Torneios';
+import EmpresasScreen from '../presentation/screens/empresas/Empresas';
 
-export default function BottomNavigation() {
+export default function MainLayout() {
   const Tab = createBottomTabNavigator();
 
   const tabOffsetValue = useRef(new Animated.Value(0)).current;
