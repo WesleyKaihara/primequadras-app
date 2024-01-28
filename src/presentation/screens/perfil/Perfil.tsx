@@ -3,7 +3,7 @@ import React, {useCallback} from 'react';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {PerfilStackParamList} from 'src/main/routes/Perfil/PerfilStack';
 import {AppLayout} from '../../layout/app/AppLayout';
-import {PerfilMenuItem, PerfilMenuItens} from './components';
+import {PerfilHeader, PerfilMenuItem, PerfilMenuItens} from './components';
 
 export const Perfil = () => {
   const {navigate} = useNavigation<NavigationProp<PerfilStackParamList>>();
@@ -36,6 +36,7 @@ export const Perfil = () => {
 
   return (
     <AppLayout>
+      <PerfilHeader />
       <FlatList
         data={perfilMenu}
         renderItem={profileRenderItem}
