@@ -1,4 +1,4 @@
-import {Router} from './src/main/routes/index';
+import {Router} from '@routes';
 import * as React from 'react';
 import 'react-native-gesture-handler';
 

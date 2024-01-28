@@ -1,16 +1,30 @@
-module.exports = {
-  presets: ['module:@react-native/babel-preset'],
-  plugins: [
-    [
-      'module-resolver',
-      {
-        root: ['./src'],
-        alias: {
-          '@routes': ['./src/main/routes/index.ts'],
-          '@screens': ['./src/presentation/screens/index.ts'],
+module.exports = function (api) {
+  api.cache(true);
+  return {
+    presets: ['module:metro-react-native-babel-preset'],
+    plugins: [
+      [
+        'module-resolver',
+        {
+          root: ['.'],
+          extensions: [
+            '.ios.js',
+            '.android.js',
+            '.ios.jsx',
+            '.android.jsx',
+            '.js',
+            '.jsx',
+            '.json',
+            '.ts',
+            '.tsx',
+          ],
+          alias: {
+            '@routes': ['./src/main/routes'],
+            '@screens': ['./src/presentation/screens'],
+            '@src/*': ['./src'],
+          },
         },
-        extensions: ['.ts', '.tsx'],
-      },
+      ],
     ],
-  ],
+  };
 };

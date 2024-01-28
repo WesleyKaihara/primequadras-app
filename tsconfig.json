@@ -1,12 +1,12 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json",
+  "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
-    "jsx": "react",
-    "baseUrl": "./",
-    "noUnusedLocals": true,
+    "strict": true,
+    "baseUrl": ".",
     "paths": {
-      "@routes": ["src/main/routes/index.ts"],
-      "@screens": ["src/presentation/screens/index.ts"]
+      "@routes": ["src/main/routes/index"],
+      "@screens": ["src/presentation/screens/index"],
+      "src/*": ["src/*"]
     }
   }
 }

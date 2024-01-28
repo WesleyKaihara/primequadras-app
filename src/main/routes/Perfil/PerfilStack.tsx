@@ -4,7 +4,7 @@ import {Perfil, Sobre} from '../../../presentation/screens/index';
 
 export type PerfilStackParamList = {
   PerfilHome: undefined;
-  SobreApp: undefined;
+  Sobre: undefined;
 };
 
 const {Navigator, Screen} = createNativeStackNavigator<PerfilStackParamList>();
@@ -19,13 +19,7 @@ export const PerfilStack = () => {
           headerShown: false,
         }}
       />
-      <Screen
-        name="SobreApp"
-        children={() => <Sobre />}
-        options={{
-          headerShown: false,
-        }}
-      />
+      <Screen name="Sobre" children={() => <Sobre />} />
     </Navigator>
   );
 };
