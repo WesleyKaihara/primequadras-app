@@ -29,7 +29,7 @@ export const PerfilHeader = () => {
         </View>
       </View>
       <View style={styles.container}>
-        <Text style={styles.titulo}>Meu perfil</Text>
+        <Text style={styles.titulo}>perfil</Text>
         <View style={styles.perfil_detalhes}>
           <Image
             style={styles.perfil_imagem}
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 50,
     paddingHorizontal: '5%',
-    marginBottom: 150,
+    marginBottom: 80,
   },
   titulo: {
     fontSize: 25,
