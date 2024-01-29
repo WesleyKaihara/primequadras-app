@@ -18,18 +18,22 @@ export const Perfil = () => {
   const perfilMenu: Array<PerfilMenuItens> = [
     {
       titulo: 'Aspectos Legais',
+      iconName: 'gavel',
       onPress: () => navigate('Sobre'),
     },
     {
       titulo: 'Atendimento',
+      iconName: 'comments',
       onPress: () => navigate('Sobre'),
     },
     {
       titulo: 'Sobre',
+      iconName: 'about',
       onPress: () => navigate('Sobre'),
     },
     {
       titulo: 'Sair da conta',
+      iconName: 'leave',
       onPress: () => navigate('Sobre'),
     },
   ];

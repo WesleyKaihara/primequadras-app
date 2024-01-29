@@ -21,6 +21,8 @@ module.exports = function (api) {
           alias: {
             '@routes': ['./src/main/routes'],
             '@screens': ['./src/presentation/screens'],
+            '@icons': ['./src/presentation/assets/icons'],
+            '@components': ['./src/presentation/components'],
             '@src/*': ['./src'],
           },
         },
