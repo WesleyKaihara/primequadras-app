@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {SafeAreaView, View, Text, TouchableOpacity, Image} from 'react-native';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -6,8 +6,18 @@ import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 
 import InputField from '../../../components/InputField';
 import CustomButton from '../../../components/CustomButton';
+import AuthContext from 'src/presentation/contexts/AuthContext';
 
-export default function LoginScreen({navigation}) {
+export function Login() {
+  const {signed, user, signIn} = useContext(AuthContext);
+
+  console.log(signed);
+  console.log(user);
+
+  async function handleSignIn() {
+    await signIn();
+  }
+
   return (
     <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
       <View style={{paddingHorizontal: 25}}>
@@ -54,10 +64,7 @@ export default function LoginScreen({navigation}) {
           fieldButtonFunction={() => {}}
         />
 
-        <CustomButton
-          label={'Entrar'}
-          onPress={() => navigation.navigate('Main')}
-        />
+        <CustomButton label={'Entrar'} onPress={handleSignIn} />
 
         <Text style={{textAlign: 'center', color: '#666', marginBottom: 30}}>
           Ou

@@ -8,6 +8,7 @@
       "@screens": ["src/presentation/screens/index"],
       "@icons": ["src/presentation/assets/icons/index"],
       "@components": ["src/presentation/components/index"],
+      "@services": ["src/main/services/index"],
       "src/*": ["src/*"]
     }
   }

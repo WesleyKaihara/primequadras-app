@@ -5,15 +5,21 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import React, {useCallback} from 'react';
+import React, {useCallback, useContext} from 'react';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {PerfilStackParamList} from 'src/main/routes/Perfil/PerfilStack';
 import {AppLayout} from '../../layout/app/AppLayout';
 import {PerfilHeader, PerfilMenuItem, PerfilMenuItens} from './components';
 import {ContentTitle} from 'src/presentation/components';
+import AuthContext from 'src/presentation/contexts/AuthContext';
 
 export const Perfil = () => {
   const {navigate} = useNavigation<NavigationProp<PerfilStackParamList>>();
+  const {signOut} = useContext(AuthContext);
+
+  async function handleSignOut() {
+    await signOut();
+  }
 
   const perfilMenu: Array<PerfilMenuItens> = [
     {
@@ -34,7 +40,7 @@ export const Perfil = () => {
     {
       titulo: 'Sair da conta',
       iconName: 'leave',
-      onPress: () => navigate('Sobre'),
+      onPress: handleSignOut,
     },
   ];
 
