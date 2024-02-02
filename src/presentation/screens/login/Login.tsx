@@ -9,10 +9,7 @@ import CustomButton from '../../../components/CustomButton';
 import AuthContext from 'src/presentation/contexts/AuthContext';
 
 export function Login() {
-  const {signed, user, signIn} = useContext(AuthContext);
-
-  console.log(signed);
-  console.log(user);
+  const {signIn} = useContext(AuthContext);
 
   async function handleSignIn() {
     await signIn();

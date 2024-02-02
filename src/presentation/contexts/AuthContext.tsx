@@ -3,7 +3,7 @@ import {signIn as logar} from '@services';
 
 interface AuthContextData {
   signed: boolean;
-  user: object | null;
+  token: string | null;
   signIn(): Promise<void>;
   signOut(): void;
 }
@@ -11,14 +11,14 @@ interface AuthContextData {
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({children}) => {
-  const [user, setUser] = useState<object | null>(null);
+  const [user, setUser] = useState<string | null>(null);
 
   async function signIn() {
-    const response = await logar();
-
-    setUser(response.user);
-
-    console.log(response);
+    const response = await logar({
+      email: 'wesley@email.com',
+      senha: 'Wesley123',
+    });
+    setUser(response.access_token);
   }
 
   function signOut() {
@@ -26,7 +26,8 @@ export const AuthProvider: React.FC = ({children}) => {
   }
 
   return (
-    <AuthContext.Provider value={{signed: !!user, user: user, signIn, signOut}}>
+    <AuthContext.Provider
+      value={{signed: !!user, token: user, signIn, signOut}}>
       {children}
     </AuthContext.Provider>
   );

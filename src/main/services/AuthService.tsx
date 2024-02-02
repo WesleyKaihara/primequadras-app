@@ -1,21 +1,19 @@
+import axios from 'axios';
+import {PRIME_QUADRAS_API} from '@env';
+
 interface Response {
-  token: string;
-  user: {
-    name: string;
-    email: string;
-  };
+  access_token: string;
 }
 
-export function signIn(): Promise<Response> {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve({
-        token: '9c48174c9018mc44v17j1r1lj7x6746',
-        user: {
-          name: 'Teste',
-          email: 'teste@gmail.com',
-        },
-      });
-    }, 2000);
+type Login = {
+  email: string;
+  senha: string;
+};
+
+export async function signIn({email, senha}: Login): Promise<Response> {
+  const {data} = await axios.post(`${PRIME_QUADRAS_API}/auth/login`, {
+    email,
+    senha,
   });
+  return data;
 }
