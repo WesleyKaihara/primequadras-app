@@ -1,10 +1,4 @@
-import {
-  FlatList,
-  ListRenderItem,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-} from 'react-native';
+import {FlatList, ListRenderItem, SafeAreaView, StyleSheet} from 'react-native';
 import React, {useCallback, useContext} from 'react';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {PerfilStackParamList} from 'src/main/routes/Perfil/PerfilStack';
@@ -12,11 +6,11 @@ import {AppLayout} from '../../layout/app/AppLayout';
 import {PerfilHeader, PerfilMenuItem, PerfilMenuItens} from './components';
 import {ContentTitle} from 'src/presentation/components';
 import AuthContext from 'src/presentation/contexts/AuthContext';
+import {PerfilEmpresa} from './components/PerfilEmpresa';
 
 export const Perfil = () => {
   const {navigate} = useNavigation<NavigationProp<PerfilStackParamList>>();
   const {signOut} = useContext(AuthContext);
-
   async function handleSignOut() {
     await signOut();
   }
@@ -55,9 +49,8 @@ export const Perfil = () => {
     <AppLayout>
       <PerfilHeader />
       <SafeAreaView style={styles.container}>
-        <ScrollView>
-          <ContentTitle>Meu Resumo</ContentTitle>
-        </ScrollView>
+        <ContentTitle>Meu Resumo</ContentTitle>
+        <PerfilEmpresa />
         <FlatList
           data={perfilMenu}
           renderItem={profileRenderItem}

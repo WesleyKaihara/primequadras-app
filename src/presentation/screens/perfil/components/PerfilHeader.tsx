@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   Dimensions,
   Image,
@@ -8,8 +8,10 @@ import {
   View,
 } from 'react-native';
 import Svg, {Path} from 'react-native-svg';
+import AuthContext from 'src/presentation/contexts/AuthContext';
 
 export const PerfilHeader = () => {
+  const {user} = useContext(AuthContext);
   StatusBar.setHidden(true);
   return (
     <>
@@ -36,7 +38,7 @@ export const PerfilHeader = () => {
             source={require('../../../assets/images/default-profile.png')}
           />
           <View>
-            <Text style={styles.perfil_nome}>Wesley Kaihara</Text>
+            <Text style={styles.perfil_nome}>{user ? user.nome : ''}</Text>
             <Text style={styles.perfil_detalhes_info}>
               Acompanhe suas estatísticas e configurações
             </Text>

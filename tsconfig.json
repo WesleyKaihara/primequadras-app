@@ -7,6 +7,7 @@
       "@routes": ["src/main/routes/index"],
       "@screens": ["src/presentation/screens/index"],
       "@icons": ["src/presentation/assets/icons/index"],
+      "@models": ["src/presentation/assets/icons/index"],
       "@components": ["src/presentation/components/index"],
       "@services": ["src/main/services/index"],
       "src/*": ["src/*"]

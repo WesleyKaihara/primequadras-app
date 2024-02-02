@@ -3,6 +3,7 @@ import {PRIME_QUADRAS_API} from '@env';
 
 interface Response {
   access_token: string;
+  user: {sub: number; nome: string};
 }
 
 type Login = {

@@ -1,24 +1,29 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useContext, useState} from 'react';
 import {signIn as logar} from '@services';
 
 interface AuthContextData {
   signed: boolean;
-  token: string | null;
+  user: {nome: string; id: number} | null;
   signIn(): Promise<void>;
   signOut(): void;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
+export const useAuth = () => useContext(AuthContext);
+
 export const AuthProvider: React.FC = ({children}) => {
-  const [user, setUser] = useState<string | null>(null);
+  const [user, setUser] = useState<any | null>(null);
 
   async function signIn() {
     const response = await logar({
       email: 'wesley@email.com',
       senha: 'Wesley123',
     });
-    setUser(response.access_token);
+
+    if (response) {
+      setUser(response.user);
+    }
   }
 
   function signOut() {
@@ -26,8 +31,7 @@ export const AuthProvider: React.FC = ({children}) => {
   }
 
   return (
-    <AuthContext.Provider
-      value={{signed: !!user, token: user, signIn, signOut}}>
+    <AuthContext.Provider value={{signed: !!user, user: user, signIn, signOut}}>
       {children}
     </AuthContext.Provider>
   );
