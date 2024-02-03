@@ -5,7 +5,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 
 import InputField from '../../../components/InputField';
-import CustomButton from '../../../components/CustomButton';
+import AppButton from '../../../components/AppButton';
 import AuthContext from 'src/presentation/contexts/AuthContext';
 
 export function Login() {
@@ -61,7 +61,7 @@ export function Login() {
           fieldButtonFunction={() => {}}
         />
 
-        <CustomButton label={'Entrar'} onPress={handleSignIn} />
+        <AppButton label={'Entrar'} onPress={handleSignIn} />
 
         <Text style={{textAlign: 'center', color: '#666', marginBottom: 30}}>
           Ou

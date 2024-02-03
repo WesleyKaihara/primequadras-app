@@ -28,10 +28,26 @@ export const PerfilStack = () => {
           headerShown: false,
         }}
       />
-      <Screen name="Sobre" children={() => <Sobre />} />
-      <Screen name="Quadras" children={() => <Quadras />} />
-      <Screen name="Agendamentos" children={() => <Agendamentos />} />
-      <Screen name="Equipe" children={() => <Equipe />} />
+      <Screen
+        name="Sobre"
+        options={{headerTransparent: true}}
+        children={() => <Sobre />}
+      />
+      <Screen
+        name="Quadras"
+        options={{headerTransparent: true}}
+        children={() => <Quadras />}
+      />
+      <Screen
+        name="Agendamentos"
+        options={{headerTransparent: true}}
+        children={() => <Agendamentos />}
+      />
+      <Screen
+        name="Equipe"
+        options={{headerTransparent: true}}
+        children={() => <Equipe />}
+      />
     </Navigator>
   );
 };
