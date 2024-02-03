@@ -6,7 +6,7 @@ import {AppLayout} from '../../layout/app/AppLayout';
 import {PerfilHeader, PerfilMenuItem, PerfilMenuItens} from './components';
 import {ContentTitle} from 'src/presentation/components';
 import AuthContext from 'src/presentation/contexts/AuthContext';
-import {PerfilEmpresa} from './components/PerfilEmpresa';
+import {PerfilEmpresa} from './components/empresa/PerfilEmpresas';
 
 export const Perfil = () => {
   const {navigate} = useNavigation<NavigationProp<PerfilStackParamList>>();
@@ -55,7 +55,6 @@ export const Perfil = () => {
           data={perfilMenu}
           renderItem={profileRenderItem}
           keyExtractor={item => item.titulo}
-          style={{marginTop: 24}}
           showsVerticalScrollIndicator={false}
         />
       </SafeAreaView>

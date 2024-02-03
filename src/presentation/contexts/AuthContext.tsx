@@ -1,5 +1,15 @@
-import React, {createContext, useContext, useState} from 'react';
+import React, {
+  ReactNode,
+  createContext,
+  useContext,
+  useState,
+  FunctionComponent,
+} from 'react';
 import {signIn as logar} from '@services';
+
+interface BaseLayoutProps {
+  children?: ReactNode;
+}
 
 interface AuthContextData {
   signed: boolean;
@@ -9,10 +19,11 @@ interface AuthContextData {
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
-
 export const useAuth = () => useContext(AuthContext);
 
-export const AuthProvider: React.FC = ({children}) => {
+export const AuthProvider: FunctionComponent<BaseLayoutProps> = ({
+  children,
+}) => {
   const [user, setUser] = useState<any | null>(null);
 
   async function signIn() {
