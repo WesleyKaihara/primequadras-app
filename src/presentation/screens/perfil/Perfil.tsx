@@ -4,7 +4,6 @@ import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {PerfilStackParamList} from 'src/main/routes/Perfil/PerfilStack';
 import {AppLayout} from '../../layout/app/AppLayout';
 import {PerfilHeader, PerfilMenuItem, PerfilMenuItens} from './components';
-import {ContentTitle} from 'src/presentation/components';
 import AuthContext from 'src/presentation/contexts/AuthContext';
 import {PerfilEmpresa} from './components/empresa/PerfilEmpresas';
 
@@ -49,12 +48,12 @@ export const Perfil = () => {
     <AppLayout>
       <PerfilHeader />
       <SafeAreaView style={styles.container}>
-        <ContentTitle>Meu Resumo</ContentTitle>
         <PerfilEmpresa />
         <FlatList
           data={perfilMenu}
           renderItem={profileRenderItem}
           keyExtractor={item => item.titulo}
+          style={{marginTop: 20}}
           showsVerticalScrollIndicator={false}
         />
       </SafeAreaView>

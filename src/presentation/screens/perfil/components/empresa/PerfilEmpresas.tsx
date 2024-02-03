@@ -80,7 +80,7 @@ export const PerfilEmpresa = () => {
         <FlatList
           data={pessoaEmpresasList}
           renderItem={listarEmpresasPessoa}
-          keyExtractor={item => item.nome}
+          keyExtractor={item => item.empresa.id}
           showsVerticalScrollIndicator={false}
         />
       ) : (
