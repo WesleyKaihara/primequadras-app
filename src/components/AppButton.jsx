@@ -1,9 +1,28 @@
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, Dimensions} from 'react-native';
 import React from 'react';
 
-export default function AppButton({label, onPress}) {
+export default function AppButton({label, onPress, isBottonButton}) {
+  const bottonButtonStyle = () => {
+    const width = Dimensions.get('window').width;
+    const height = Dimensions.get('window').height;
+
+    if (isBottonButton) {
+      return {
+        position: 'absolute',
+        top: height - 80,
+        width: width - width * 0.1,
+        marginHorizontal: width * 0.05,
+      };
+    }
+  };
+
   return (
-    <TouchableOpacity onPress={onPress} style={styles.button}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={{
+        ...styles.button,
+        ...bottonButtonStyle(),
+      }}>
       <Text style={styles.label}>{label}</Text>
     </TouchableOpacity>
   );
