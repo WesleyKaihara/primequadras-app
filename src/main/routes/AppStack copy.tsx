@@ -10,23 +10,6 @@ import {AgendamentoStack} from './Agendamento/AgendamentoStack';
 import {TorneioStack} from './Torneio/TorneioStack';
 import {PerfilStack} from './Perfil/PerfilStack';
 import {EmpresaStack} from './Empresa/EmpresaStack';
-import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
-
-const tabBarStyle: any = {
-  backgroundColor: 'white',
-  position: 'absolute',
-  bottom: 30,
-  marginHorizontal: 20,
-  height: 60,
-  borderRadius: 10,
-  shadowColor: '#000',
-  shadowOpacity: 0.06,
-  shadowOffset: {
-    width: 10,
-    height: 10,
-  },
-  paddingHorizontal: 20,
-};
 
 export const AppStack = () => {
   const Tab = createBottomTabNavigator();
@@ -40,7 +23,21 @@ export const AppStack = () => {
         screenOptions={{
           headerShown: false,
           tabBarShowLabel: false,
-          tabBarStyle: tabBarStyle,
+          tabBarStyle: {
+            backgroundColor: 'white',
+            position: 'absolute',
+            bottom: 30,
+            marginHorizontal: 20,
+            height: 60,
+            borderRadius: 10,
+            shadowColor: '#000',
+            shadowOpacity: 0.06,
+            shadowOffset: {
+              width: 10,
+              height: 10,
+            },
+            paddingHorizontal: 20,
+          },
         }}>
         <Tab.Screen
           name="Inicio"
@@ -166,17 +163,14 @@ export const AppStack = () => {
         <Tab.Screen
           name="Perfil"
           component={PerfilStack}
-          options={({route}) => {
-            return {
-              tabBarIcon: ({focused}) => (
-                <AntDesignIcon
-                  name="user"
-                  size={25}
-                  style={{color: focused ? '#FECC33' : '#444'}}
-                />
-              ),
-              tabBarStyle: (routeName => showTabNavigation(routeName))(route),
-            };
+          options={{
+            tabBarIcon: ({focused}) => (
+              <AntDesignIcon
+                name="user"
+                size={25}
+                style={{color: focused ? '#FECC33' : '#444'}}
+              />
+            ),
           }}
           listeners={() => ({
             tabPress: () => {
@@ -214,13 +208,4 @@ function getWidth() {
   let width = Dimensions.get('window').width;
   width = width - 80;
   return width / 5;
-}
-
-function showTabNavigation(route: any) {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? '';
-  const fullScreenPages = ['Quadras', 'Agendamentos', 'Equipe'];
-  if (fullScreenPages.includes(routeName)) {
-    return {display: 'none'};
-  }
-  return tabBarStyle;
 }
