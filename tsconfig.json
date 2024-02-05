@@ -10,6 +10,7 @@
       "@models": ["src/presentation/assets/icons/index"],
       "@components": ["src/presentation/components/index"],
       "@services": ["src/main/services/index"],
+      "@dtos": ["src/domain/dtos/index"],
       "src/*": ["src/*"]
     }
   },

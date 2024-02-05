@@ -1,7 +1,7 @@
 import {StyleSheet, Text, TouchableOpacity, Dimensions} from 'react-native';
 import React from 'react';
 
-export default function AppButton({label, onPress, isBottonButton}) {
+export default function AppButton({label, onPress, isBottonButton, disabled}) {
   const bottonButtonStyle = () => {
     const width = Dimensions.get('window').width;
     const height = Dimensions.get('window').height;
@@ -18,10 +18,12 @@ export default function AppButton({label, onPress, isBottonButton}) {
 
   return (
     <TouchableOpacity
-      onPress={onPress}
+      onPress={!disabled ? onPress : () => {}}
+      disabled={disabled}
       style={{
         ...styles.button,
         ...bottonButtonStyle(),
+        backgroundColor: disabled? '#ccc': '#FECC33' 
       }}>
       <Text style={styles.label}>{label}</Text>
     </TouchableOpacity>
@@ -30,7 +32,6 @@ export default function AppButton({label, onPress, isBottonButton}) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#FECC33',
     padding: 20,
     borderRadius: 10,
     marginBottom: 30,

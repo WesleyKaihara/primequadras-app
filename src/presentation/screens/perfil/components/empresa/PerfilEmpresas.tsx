@@ -45,17 +45,17 @@ export const PerfilEmpresa = () => {
         {
           titulo: 'Quadras',
           iconName: 'gavel',
-          onPress: () => navigate('Quadras'),
+          onPress: () => navigate('Quadras', {empresaId: empresa.id}),
         },
         {
           titulo: 'Agendamentos',
           iconName: 'comments',
-          onPress: () => navigate('Agendamentos'),
+          onPress: () => navigate('Agendamentos', {empresaId: empresa.id}),
         },
         {
           titulo: 'Equipe',
           iconName: 'about',
-          onPress: () => navigate('Equipe'),
+          onPress: () => navigate('Equipe', {empresaId: empresa.id}),
         },
       ];
 

@@ -11,9 +11,9 @@ import {
 export type PerfilStackParamList = {
   PerfilHome: undefined;
   Sobre: undefined;
-  Quadras: undefined;
-  Agendamentos: undefined;
-  Equipe: undefined;
+  Quadras: {empresaId: number};
+  Agendamentos: {empresaId: number};
+  Equipe: {empresaId: number};
 };
 
 const {Navigator, Screen} = createNativeStackNavigator<PerfilStackParamList>();
